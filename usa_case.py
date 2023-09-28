@@ -3,21 +3,17 @@
 
 # ## Case 2 house prices
 
-# In[144]:
-
 
 # pip install geopy
 
 
-# In[145]:
 
 
 # pip install pgeocode
 
 
-# In[146]:
 
-pip install statsmodels
+
 import pandas as pd
 # from geopy.geocoders import Nominatim
 import streamlit as st
@@ -26,15 +22,13 @@ import plotly.express as px
 import numpy as np
 # import time
 import plotly.graph_objects as go
-# import statsmodels.api as sm
+import statsmodels.api as sm
 
 
-# In[147]:
-
-
-df = pd.read_csv("usa_house.csv")
-df2 = pd.read_csv("kc_house.csv")
-
+# df = pd.read_csv("usa_house.csv")
+# df2 = pd.read_csv("kc_house.csv")
+df = pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\case_parijs\usa\usa_house.csv")
+df2 = pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\case_parijs\usa\kc_house.csv")
 
 # In[148]:
 
@@ -44,13 +38,9 @@ df = df[df['price'] != 0]
 
 # https://pypi.org/project/pgeocode/
 
-# In[149]:
-
 
 df2.head()
 
-
-# In[ ]:
 
 
 
@@ -187,7 +177,7 @@ st.plotly_chart(fig)
 # In[160]:
 
 
-import streamlit as st
+
 
 st.title("Prijs versus Bouwjaar van Huizen")
 
@@ -316,8 +306,7 @@ st.write(
 # In[162]:
 
 
-import pandas as pd
-import plotly.express as px
+
 
 def verwijder_uitbijters(df, var):
     Q3 = df[var].quantile(0.75)
@@ -405,10 +394,6 @@ elif button_2:
 
 
 
-# In[138]:
-
-
-import streamlit as st
 
 # Titel
 st.title("Regressie")
@@ -429,13 +414,10 @@ st.write(
     "Maar dit is niet het geval bij dataset 2; als je hier de uitbijters weghaalt, wordt de R2-score slechter."
 )
 
-# # Voeg hier je dropdownmenu, knoppen en andere interactieve elementen toe
+# Voeg hier je dropdownmenu, knoppen en andere interactieve elementen toe
 
 
-# # In[125]:
 
-
-# import plotly.express as px
 
 def verwijder_uitbijters(df, var):
     Q3 = df[var].quantile(0.75)
@@ -477,31 +459,31 @@ else:
         df2 = verwijder_uitbijters(df2, column)
 
     
-# Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
-fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
-fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
+# # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
+# fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
+# fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
 
-fig1.update_traces(marker=dict(color='green'))
-fig2.update_traces(marker=dict(color='blue'))
+# fig1.update_traces(marker=dict(color='green'))
+# fig2.update_traces(marker=dict(color='blue'))
 
-# Stel de kleur van de trendlijn in op rood (R)
-fig1.update_traces(line=dict(color='red'))
-fig2.update_traces(line=dict(color='red'))
+# # Stel de kleur van de trendlijn in op rood (R)
+# fig1.update_traces(line=dict(color='red'))
+# fig2.update_traces(line=dict(color='red'))
 
-fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
-fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
-
-
-
-# Voeg knoppen toe voor de figuren
-button_3 = st.button('Dataset 1')
-button_4 = st.button('Dataset 2')
+# fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
+# fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
 
 
-if button_3:
-    st.plotly_chart(fig1)
-elif button_4:
-    st.plotly_chart(fig2)
+
+# # Voeg knoppen toe voor de figuren
+# button_3 = st.button('Dataset 1')
+# button_4 = st.button('Dataset 2')
+
+
+# if button_3:
+#     st.plotly_chart(fig1)
+# elif button_4:
+#     st.plotly_chart(fig2)
 
 
 
