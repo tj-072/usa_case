@@ -26,6 +26,7 @@ import plotly.express as px
 import numpy as np
 import time
 import plotly.graph_objects as go
+import statsmodels.api as sm
 
 
 # In[147]:
