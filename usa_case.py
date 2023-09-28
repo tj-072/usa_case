@@ -429,88 +429,79 @@ st.write(
     "Maar dit is niet het geval bij dataset 2; als je hier de uitbijters weghaalt, wordt de R2-score slechter."
 )
 
-# Voeg hier je dropdownmenu, knoppen en andere interactieve elementen toe
+# # Voeg hier je dropdownmenu, knoppen en andere interactieve elementen toe
 
 
-# In[125]:
+# # In[125]:
 
 
-import plotly.express as px
+# import plotly.express as px
 
-def verwijder_uitbijters(df, var):
-    Q3 = df[var].quantile(0.75)
-    Q1 = df[var].quantile(0.25)
-    IQR = Q3-Q1
-    upper = Q3 + (1.5 * IQR)
-    lower = Q1 - (1.5 * IQR)
+# def verwijder_uitbijters(df, var):
+#     Q3 = df[var].quantile(0.75)
+#     Q1 = df[var].quantile(0.25)
+#     IQR = Q3-Q1
+#     upper = Q3 + (1.5 * IQR)
+#     lower = Q1 - (1.5 * IQR)
 
-    df = df[(df[var] > lower) & (df[var] < upper)]
+#     df = df[(df[var] > lower) & (df[var] < upper)]
 
-    return df
+#     return df
 
-df_sqft = df[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
-df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
+# df_sqft = df[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
+# df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
 
-# Dropdown-menu voor kenmerken op de x-as
-selected_feature = st.selectbox('Selecteer een kenmerk voor de x-as', df_sqft.columns)
+# # Dropdown-menu voor kenmerken op de x-as
+# selected_feature = st.selectbox('Selecteer een kenmerk voor de x-as', df_sqft.columns)
 
-# Dropdown-menu voor weergave met of zonder uitbijters
-show_outliers666 = st.checkbox('Toon uitbijters', key='show_outliers666', value=False)
+# # Dropdown-menu voor weergave met of zonder uitbijters
+# show_outliers666 = st.checkbox('Toon uitbijters', key='show_outliers666', value=False)
 
-# Verwijder uitbijters op basis van de geselecteerde kolom en weergaveoptie
-if show_outliers666:
-    df = df
-    df2 = df2
-else:
-    # Lijst van kolommen om uitbijters te verwijderen
-    columns_to_process = ['price', selected_feature]
+# # Verwijder uitbijters op basis van de geselecteerde kolom en weergaveoptie
+# if show_outliers666:
+#     df = df
+#     df2 = df2
+# else:
+#     # Lijst van kolommen om uitbijters te verwijderen
+#     columns_to_process = ['price', selected_feature]
 
-    # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df'
-    for column in columns_to_process:
-        df = verwijder_uitbijters(df, column)
+#     # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df'
+#     for column in columns_to_process:
+#         df = verwijder_uitbijters(df, column)
 
-    # Lijst van kolommen om uitbijters te verwijderen in df2
-    columns_to_process_df2 = ['price', selected_feature]
+#     # Lijst van kolommen om uitbijters te verwijderen in df2
+#     columns_to_process_df2 = ['price', selected_feature]
 
-    # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df2'
-    for column in columns_to_process_df2:
-        df2 = verwijder_uitbijters(df2, column)
+#     # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df2'
+#     for column in columns_to_process_df2:
+#         df2 = verwijder_uitbijters(df2, column)
 
     
-# # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
-# fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
-# fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
+# # # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
+# # fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
+# # fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
 
-fig1.update_traces(marker=dict(color='green'))
-fig2.update_traces(marker=dict(color='blue'))
+# fig1.update_traces(marker=dict(color='green'))
+# fig2.update_traces(marker=dict(color='blue'))
 
-# Stel de kleur van de trendlijn in op rood (R)
-fig1.update_traces(line=dict(color='red'))
-fig2.update_traces(line=dict(color='red'))
+# # Stel de kleur van de trendlijn in op rood (R)
+# fig1.update_traces(line=dict(color='red'))
+# fig2.update_traces(line=dict(color='red'))
 
-fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
-fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
-
-
-
-# Voeg knoppen toe voor de figuren
-button_3 = st.button('Dataset 1')
-button_4 = st.button('Dataset 2')
-
-
-if button_3:
-    st.plotly_chart(fig1)
-elif button_4:
-    st.plotly_chart(fig2)
-
-
-# In[ ]:
+# fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
+# fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
 
 
 
+# # Voeg knoppen toe voor de figuren
+# button_3 = st.button('Dataset 1')
+# button_4 = st.button('Dataset 2')
 
 
-# In[ ]:
+# if button_3:
+#     st.plotly_chart(fig1)
+# elif button_4:
+#     st.plotly_chart(fig2)
 
 
 
