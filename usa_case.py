@@ -17,7 +17,7 @@
 
 # In[146]:
 
-
+pip install statsmodels
 import pandas as pd
 # from geopy.geocoders import Nominatim
 import streamlit as st
