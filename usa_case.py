@@ -454,27 +454,27 @@ df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
 # Dropdown-menu voor kenmerken op de x-as
 selected_feature = st.selectbox('Selecteer een kenmerk voor de x-as', df_sqft.columns)
 
-# # Dropdown-menu voor weergave met of zonder uitbijters
-# show_outliers666 = st.checkbox('Toon uitbijters', key='show_outliers666', value=False)
+# Dropdown-menu voor weergave met of zonder uitbijters
+show_outliers666 = st.checkbox('Toon uitbijters', key='show_outliers666', value=False)
 
-# # Verwijder uitbijters op basis van de geselecteerde kolom en weergaveoptie
-# if show_outliers666:
-#     df = df
-#     df2 = df2
-# else:
-#     # Lijst van kolommen om uitbijters te verwijderen
-#     columns_to_process = ['price', selected_feature]
+# Verwijder uitbijters op basis van de geselecteerde kolom en weergaveoptie
+if show_outliers666:
+    df = df
+    df2 = df2
+else:
+    # Lijst van kolommen om uitbijters te verwijderen
+    columns_to_process = ['price', selected_feature]
 
-#     # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df'
-#     for column in columns_to_process:
-#         df = verwijder_uitbijters(df, column)
+    # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df'
+    for column in columns_to_process:
+        df = verwijder_uitbijters(df, column)
 
-#     # Lijst van kolommen om uitbijters te verwijderen in df2
-#     columns_to_process_df2 = ['price', selected_feature]
+    # Lijst van kolommen om uitbijters te verwijderen in df2
+    columns_to_process_df2 = ['price', selected_feature]
 
-#     # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df2'
-#     for column in columns_to_process_df2:
-#         df2 = verwijder_uitbijters(df2, column)
+    # Loop door de kolommen en verwijder uitbijters, bijwerkend DataFrame 'df2'
+    for column in columns_to_process_df2:
+        df2 = verwijder_uitbijters(df2, column)
 
     
 # # # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
