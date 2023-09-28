@@ -459,31 +459,31 @@ else:
         df2 = verwijder_uitbijters(df2, column)
 
     
-# # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
-# fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
-# fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
+# Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
+fig1 = px.scatter(df, x=selected_feature, y='price')
+fig2 = px.scatter(df2, x=selected_feature, y='price')
 
-# fig1.update_traces(marker=dict(color='green'))
-# fig2.update_traces(marker=dict(color='blue'))
+fig1.update_traces(marker=dict(color='green'))
+fig2.update_traces(marker=dict(color='blue'))
 
 # # Stel de kleur van de trendlijn in op rood (R)
 # fig1.update_traces(line=dict(color='red'))
 # fig2.update_traces(line=dict(color='red'))
 
-# fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
-# fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
+fig1_button = {'method': 'update', 'label': 'Figure 1', 'args': [{'visible': [True, False]}, {'title': 'Figure 1'}]}
+fig2_button = {'method': 'update', 'label': 'Figure 2', 'args': [{'visible': [False, True]}, {'title': 'Figure 2'}]}
 
 
 
-# # Voeg knoppen toe voor de figuren
-# button_3 = st.button('Dataset 1')
-# button_4 = st.button('Dataset 2')
+# Voeg knoppen toe voor de figuren
+button_3 = st.button('Dataset 1')
+button_4 = st.button('Dataset 2')
 
 
-# if button_3:
-#     st.plotly_chart(fig1)
-# elif button_4:
-#     st.plotly_chart(fig2)
+if button_3:
+    st.plotly_chart(fig1)
+elif button_4:
+    st.plotly_chart(fig2)
 
 
 
