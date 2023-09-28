@@ -437,16 +437,16 @@ st.write(
 
 # import plotly.express as px
 
-# def verwijder_uitbijters(df, var):
-#     Q3 = df[var].quantile(0.75)
-#     Q1 = df[var].quantile(0.25)
-#     IQR = Q3-Q1
-#     upper = Q3 + (1.5 * IQR)
-#     lower = Q1 - (1.5 * IQR)
+def verwijder_uitbijters(df, var):
+    Q3 = df[var].quantile(0.75)
+    Q1 = df[var].quantile(0.25)
+    IQR = Q3-Q1
+    upper = Q3 + (1.5 * IQR)
+    lower = Q1 - (1.5 * IQR)
 
-#     df = df[(df[var] > lower) & (df[var] < upper)]
+    df = df[(df[var] > lower) & (df[var] < upper)]
 
-#     return df
+    return df
 
 # df_sqft = df[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
 # df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
