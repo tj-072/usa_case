@@ -448,11 +448,11 @@ def verwijder_uitbijters(df, var):
 
     return df
 
-# df_sqft = df[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
-# df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
+df_sqft = df[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
+df_sqft2 = df2[['sqft_living', 'sqft_lot', 'sqft_above', 'sqft_basement']]
 
-# # Dropdown-menu voor kenmerken op de x-as
-# selected_feature = st.selectbox('Selecteer een kenmerk voor de x-as', df_sqft.columns)
+# Dropdown-menu voor kenmerken op de x-as
+selected_feature = st.selectbox('Selecteer een kenmerk voor de x-as', df_sqft.columns)
 
 # # Dropdown-menu voor weergave met of zonder uitbijters
 # show_outliers666 = st.checkbox('Toon uitbijters', key='show_outliers666', value=False)
