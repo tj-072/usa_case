@@ -19,14 +19,14 @@
 
 
 import pandas as pd
-from geopy.geocoders import Nominatim
+# from geopy.geocoders import Nominatim
 import streamlit as st
 import pgeocode
 import plotly.express as px
 import numpy as np
-import time
+# import time
 import plotly.graph_objects as go
-import statsmodels.api as sm
+# import statsmodels.api as sm
 
 
 # In[147]:
