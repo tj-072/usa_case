@@ -31,8 +31,8 @@ import plotly.graph_objects as go
 # In[147]:
 
 
-df = pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\case_parijs\usa\usa_house.csv")
-df2 = pd.read_csv(r"C:\Users\tjibb\Documents\school\jaar_3\minor\case_parijs\usa\kc_house.csv")
+df = pd.read_csv("usa_house.csv")
+df2 = pd.read_csv("kc_house.csv")
 
 
 # In[148]:
