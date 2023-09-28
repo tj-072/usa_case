@@ -477,9 +477,9 @@ else:
         df2 = verwijder_uitbijters(df2, column)
 
     
-# # # Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
-# # fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
-# # fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
+# Maak een scatterplot met OverallQual op de x-as en SalePrice op de y-as
+fig1 = px.scatter(df, x=selected_feature, y='price', trendline='ols')
+fig2 = px.scatter(df2, x=selected_feature, y='price', trendline='ols')
 
 # fig1.update_traces(marker=dict(color='green'))
 # fig2.update_traces(marker=dict(color='blue'))
